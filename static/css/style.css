@@ -1,0 +1,35 @@
+html{
+    height:100%;
+    width:100%;
+}
+
+body{
+    width:inherit;
+    height:inherit;
+    border:turquoise 6px solid;
+}
+
+#main-container{
+    height:inherit;
+    display:flex;
+    flex-direction: column;
+}
+
+#content-container{
+    flex:1;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.content-container-child{
+    border:solid blueviolet;
+}
+
+#nav-bar-container{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    height:10%;
+    border: solid green;
+}
+
