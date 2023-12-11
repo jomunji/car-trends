@@ -15,11 +15,17 @@
 <div id="main-container">
     {% block page_navigation_bar %}
     <div id="nav-bar-container">
-        <button class="btn">One</button>
-        <button class="btn">Two</button>
-        <button class="btn">Three</button>
-        <button class="btn">Four</button>
+        <h1>Welcome to the Car Trends Application</h1>
     </div>
+    {% if messages %}
+        <div class="messages">
+            <ul>
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
     {% endblock page_navigation_bar %}
     {% block page_content %}{% endblock page_content %}
 </div>
