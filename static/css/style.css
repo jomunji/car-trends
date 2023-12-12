@@ -67,12 +67,36 @@ body{
 #summary-stats{}
 
 
+/*  MESSAGES */
 .messages{
     position:fixed;
-    top:0;
-    right:0;
-    color:blue;
+    top:5px;
+    right:5px;
+}
+
+.message{
+    padding:10px;
+    color:black;
     background-color: white;
+    border-radius: 10px;
     width:200px;
-    height:100px;
+    height:min-content;
+    font-style: italic;
+    text-align: left;
+    animation: cssAnimation 3s forwards;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.message > .success{
+    background-color: lightgreen;
+}
+
+.message > .error{
+    background-color: lightcoral;
+}
+
+@keyframes cssAnimation {
+    0%   {opacity: 1;}
+    50%  {opacity: 1;}
+    100% {opacity: 0;}
 }

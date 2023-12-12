@@ -19,11 +19,15 @@
     </div>
     {% if messages %}
         <div class="messages">
-            <ul>
             {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            <div class="message">
+                <div><b>Message</b></div>
+                <div>
+                    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                </div>
+            </div>
             {% endfor %}
-            </ul>
+            
         </div>
     {% endif %}
     {% endblock page_navigation_bar %}
