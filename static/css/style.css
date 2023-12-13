@@ -8,6 +8,9 @@ body{
     height:inherit;
     /* border:turquoise 6px solid; */
     margin:0;
+    background-color: #f5f5ff;
+    padding-bottom:20px;
+    padding-top:20px;
 }
 
 #base-container{
@@ -34,6 +37,7 @@ body{
 
 .content-container-child{
     /* border:solid blueviolet; */
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +45,7 @@ body{
     margin:5px;
     padding:10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius:5px;
 }
 
 #nav-bar-container{
@@ -63,7 +68,9 @@ body{
 }
 
 /*welcome-para*/
-#welcome-para{}
+#welcome-para{
+    padding:30px;
+}
 
 #test-form{
     /* border:solid purple; */
@@ -96,7 +103,18 @@ body{
 /*summary-stats*/
 #summary-stats{
    flex-direction: column;
-   justify-content: flex-start;
+   justify-content: center;
+}
+
+.stat{
+    background-color: #b3d2fe;
+    color:#013c92;
+    border-radius: 5px;
+    padding:10px;
+    width:80%;
+    text-align: center;
+    margin:5px;
+    font-size: smaller;
 }
 
 

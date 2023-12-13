@@ -15,12 +15,19 @@
 
     <div class="content-container" id="content-container-right">
         <div id="welcome-para" class="content-container-child">
-                Welcome
+                Welcome to the home page. From here, you can view the top manufacturers, browse some brief statistics, or navigate to other pages for more in depth looks at the data.
         </div>
 
         <div id="summary-stats" class="content-container-child">
             <h4>Summary statistics</h4>
-            Mean price: {{ mean }}<br>
+            <div class="stat">Mean price: <b>£{{ mean_price }}</b></div>
+            <div class="stat">Price standard deviation: <b>£{{ std_dev_price }}</b></div>
+            <div class="stat">Mean mileage: <b>{{ mean_mileage }}</b></div>
+            <div class="stat">Mileage standard deviation: <b>{{ std_dev_mileage }}</b></div>
+            <div class="stat">Most common body type: <b>{{ common_body_type }}</b></div>
+            <div class="stat">Most common manufacturer: <b>{{ common_manufacturer }}</b></div>
+            <div class="stat">Most common colour: <b>{{ common_colour }}</b></div>
+            <div class="stat">Average engine size: <b>{{ mean_engine_size }}L</b></div>
         </div>
     </div>
 </div>

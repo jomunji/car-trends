@@ -17,12 +17,34 @@ def home(request): #The request argument is created whenever a page loads, it co
         data = cursor.fetchall()
     df = pd.DataFrame(data, columns=columns)
     # logger.warning(df.summary())
-    mean = 23456
+    mean_price = round(df["price"].mean(),2)
+    std_dev_price = round(df["price"].std(),2)
+    mean_mileage = int(round(df["mileage"].mean(),0))
+    std_dev_mileage = int(round(df["mileage"].std(),0))
+    common_body_type = df["bodytype"].value_counts().idxmax()
+    common_manufacturer = df["maker"].value_counts().idxmax()
+    common_colour = df["colour"].value_counts().idxmax()
+    mean_engine_size = round(df["engine_size"].mean(),1)
     
-    logger.warning(df.info())
+    # logger.warning(df.info())
     context = {
-        'mean': mean,
+        'mean_price': mean_price,
+        'std_dev_price': std_dev_price,
+        'mean_mileage': mean_mileage,
+        'std_dev_mileage': std_dev_mileage,
+        'common_body_type': common_body_type,
+        'common_manufacturer': common_manufacturer,
+        'common_colour': common_colour,
+        'mean_engine_size': mean_engine_size,
     }
+
+    # std_dev_price }}</b></div>
+    # <div class="stat">Mean mileage:<b>£{{ mean_mileage }}</b></div>
+    # <div class="stat">Mileage standard deviation:<b>£{{ std_dev_mileage }}</b></div>
+    # <div class="stat">Most common body type:<b>£{{ common_body_type }}</b></div>
+    # <div class="stat">Most common manufacturer:<b>£{{ common_manufacturer }}</b></div>
+    # <div class="stat">Most common colour:<b>£{{ common_colour }}</b></div>
+    # <div class="stat">Average engine size:<b>£{{ mean_engine_size }}</b></div>
     return render(request,'home/home.html',context)
 
 
@@ -62,7 +84,7 @@ def plots(request): #The request argument is created whenever a page loads, it c
     # logger.warning(home_visual_df.sort_values(by="id"))
     # logger.warning("---------")
     # logger.warning(home_visual_df.columns)
-    ax.barh(home_visual_df["maker"], home_visual_df["id"], color=randomRGB(2), edgecolor = "none")
+    ax.barh(home_visual_df["maker"], home_visual_df["id"], color=[("#6163fd"),("#aeaffe")], edgecolor = "none")
     title=plt.title("Cars per manufacturer")
     title.set_position([0.4,1])
     # plt.xticks(rotation=90)
