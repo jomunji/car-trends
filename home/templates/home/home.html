@@ -1,26 +1,30 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<div id="content-container">
-    <div id="bar-chart" class="content-container-child">
-        <img id="home-visual" src="{% url 'plots' %}"></img>
+<div id="home-page-container">
+    <div class="content-container" id="content-container-left">
+        <div id="bar-chart" class="content-container-child">
+            <img id="home-visual" src="{% url 'plots' %}"></img>
+        </div>
+
+        <div id="navigation-buttons" class="content-container-child">
+                    <button class="btn btn-primary btn-block">Manufacturer deep dive</button>
+                    <button class="btn btn-primary btn-block">Car price deep dive</button>
+                    <button class="btn btn-primary btn-block">Add rows</button>
+         </div>
     </div>
 
-    <div id="welcome-para" class="content-container-child">
-        Welcome
-    </div>
+    <div class="content-container" id="content-container-right">
+        <div id="welcome-para" class="content-container-child">
+                Welcome
+        </div>
 
-    <div id="navigation-buttons" class="content-container-child">
-        <button class="btn btn-primary btn-block">Manufacturer deep dive</button>
-        <button class="btn btn-primary btn-block">Car price deep dive</button>
-        <button class="btn btn-primary btn-block">Add rows</button>
-        
-    </div>
-
-    <div id="summary-stats" class="content-container-child">
-        Summary statistics
+        <div id="summary-stats" class="content-container-child">
+            Summary statistics
+        </div>
     </div>
 </div>
+
 
 
 {% endblock page_content %}
