@@ -45,14 +45,20 @@ def plots(request): #The request argument is created whenever a page loads, it c
     #Create home visual
     matplotlib.use("agg")
     fig, ax = plt.subplots()
-    home_visual_df = df.groupby("maker", as_index=False).count().sort_values(by="id", ascending=False)[:20]
+    home_visual_df = df.groupby("maker", as_index=False).count().sort_values(by="id", ascending=False)[:10]
     # logger.warning(home_visual_df.sort_values(by="id"))
     # logger.warning("---------")
     # logger.warning(home_visual_df.columns)
-    ax.bar(home_visual_df["maker"], home_visual_df["id"], color=randomRGB(20))
-    ax.set_title("Manufacturers")
-    plt.xticks(rotation=90)
-    plt.subplots_adjust(bottom=0.3)
+    ax.barh(home_visual_df["maker"], home_visual_df["id"], color=randomRGB(10), edgecolor = "none")
+    title=plt.title("Cars per manufacturer")
+    title.set_position([0.4,1])
+    # plt.xticks(rotation=90)
+    plt.subplots_adjust(left=0.2, bottom=0.1,top=0.9, right=1)
+    ax.set_frame_on(False)
+    # ax.set_yticks([])
+    # ax.spines["top"].set_visible(False)
+    # ax.spines["right"].set_visible(False)
+    #plt.tick_params(axis='x', which='major', pad=-15)#Move x ticks up or down
 
     canvas = FigureCanvas(fig)
     response = HttpResponse(content_type='image/png')
