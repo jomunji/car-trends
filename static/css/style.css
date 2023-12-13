@@ -14,6 +14,7 @@ body{
     height:inherit;
     display:flex;
     flex-direction: column;
+    /* border:solid black 1px; */
 }
 
 
@@ -94,7 +95,8 @@ body{
 
 /*summary-stats*/
 #summary-stats{
-   
+   flex-direction: column;
+   justify-content: flex-start;
 }
 
 
@@ -131,4 +133,29 @@ body{
     0%   {opacity: 1;}
     50%  {opacity: 1;}
     100% {opacity: 0;}
+}
+
+/* MANUFACTURER PAGE */
+#manufacturer-container{
+    /* border:solid mediumslateblue; */
+    height:100%;
+}
+
+
+/* TRENDS PAGE */
+#trends-container{
+    overflow: hidden;
+    /* border:solid aquamarine; */
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+#trends-visual{
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 10px;
+    /* border:solid darkmagenta; */
 }

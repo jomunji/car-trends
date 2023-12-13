@@ -3,14 +3,27 @@ from django.contrib import messages
 from django.db import connection
 from django.http import HttpResponse
 from .models import *
+from django.template import loader
 
 import logging
 logger = logging.getLogger(__name__)
 
 #This function renders the home.html file when called.
 def home(request): #The request argument is created whenever a page loads, it contains metadata
-
-    return render(request,'home/home.html',{})
+    #Fetch query from database
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM ad_table")
+        columns = [col[0] for col in cursor.description]
+        data = cursor.fetchall()
+    df = pd.DataFrame(data, columns=columns)
+    # logger.warning(df.summary())
+    mean = 23456
+    
+    logger.warning(df.info())
+    context = {
+        'mean': mean,
+    }
+    return render(request,'home/home.html',context)
 
 
 
@@ -34,7 +47,7 @@ def randomRGB(length):
 
 def plots(request): #The request argument is created whenever a page loads, it contains metadata
     
-    #Fetch all data from database
+    #Fetch query from database
     with connection.cursor() as cursor:
         cursor.execute("SELECT id,maker FROM ad_table")
         columns = [col[0] for col in cursor.description]
@@ -49,7 +62,7 @@ def plots(request): #The request argument is created whenever a page loads, it c
     # logger.warning(home_visual_df.sort_values(by="id"))
     # logger.warning("---------")
     # logger.warning(home_visual_df.columns)
-    ax.barh(home_visual_df["maker"], home_visual_df["id"], color=randomRGB(10), edgecolor = "none")
+    ax.barh(home_visual_df["maker"], home_visual_df["id"], color=randomRGB(2), edgecolor = "none")
     title=plt.title("Cars per manufacturer")
     title.set_position([0.4,1])
     # plt.xticks(rotation=90)

@@ -8,7 +8,7 @@
         </div>
 
         <div id="navigation-buttons" class="content-container-child">
-            <a class="btn btn-primary btn-block nav-button" href="{% url 'trends' %}">View Trend</a>
+            <a class="btn btn-primary btn-block nav-button" href="{% url 'trends' %}">View trends</a>
             <a class="btn btn-primary btn-block nav-button" href="{% url 'manufacturers' %}">Manufacturer deep dive</a>
          </div>
     </div>
@@ -19,7 +19,8 @@
         </div>
 
         <div id="summary-stats" class="content-container-child">
-            Summary statistics
+            <h4>Summary statistics</h4>
+            Mean price: {{ mean }}<br>
         </div>
     </div>
 </div>
