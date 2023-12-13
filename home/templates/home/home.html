@@ -3,56 +3,11 @@
 {% block page_content %}
 <div id="content-container">
     <div id="bar-chart" class="content-container-child">
-        Bar chart
+        <img id="home-visual" src="{% url 'plots' %}"></img>
     </div>
 
     <div id="welcome-para" class="content-container-child">
-        <form id="test-form" method="POST">
-            {% csrf_token %}
-            <div class="form-outline mb-4">
-                <input type="text" name="maker" placeholder="Enter maker" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="genmodel" placeholder="Enter genmodel" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="adv_year" placeholder="Enter adv_year" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="adv_month" placeholder="Enter adv_month" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="colour" placeholder="Enter colour" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="reg_year" placeholder="Enter reg_year" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="bodytype" placeholder="Enter bodytype" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="mileage" placeholder="Enter mileage" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="engine_size" placeholder="Enter engine_size" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="gearbox" placeholder="Enter gearbox" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="fuel_type" placeholder="Enter fuel_type" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="price" placeholder="Enter price" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="seat_num" placeholder="Enter seat_num" class="form-control">
-            </div>
-            <div class="form-outline mb-4">
-                <input type="text" name="door_num" placeholder="Enter door_num" class="form-control">
-            </div>
-            <input type="submit" class="btn btn-primary mb-4" value="Submit">
-        </form>
+        Welcome
     </div>
 
     <div id="navigation-buttons" class="content-container-child">

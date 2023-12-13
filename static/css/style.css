@@ -37,7 +37,14 @@ body{
 }
 /*Four main containers on home page*/
 /*bar-chart*/
-#bar-chart{}
+#bar-chart{
+    flex-direction: column;
+}
+
+#home-visual{
+    width:100%;
+    height:90%;
+}
 
 /*welcome-para*/
 #welcome-para{}
@@ -76,6 +83,7 @@ body{
 
 .message{
     padding:10px;
+    margin:5px;
     color:black;
     background-color: white;
     border-radius: 10px;
