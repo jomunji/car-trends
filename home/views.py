@@ -38,13 +38,6 @@ def home(request): #The request argument is created whenever a page loads, it co
         'mean_engine_size': mean_engine_size,
     }
 
-    # std_dev_price }}</b></div>
-    # <div class="stat">Mean mileage:<b>£{{ mean_mileage }}</b></div>
-    # <div class="stat">Mileage standard deviation:<b>£{{ std_dev_mileage }}</b></div>
-    # <div class="stat">Most common body type:<b>£{{ common_body_type }}</b></div>
-    # <div class="stat">Most common manufacturer:<b>£{{ common_manufacturer }}</b></div>
-    # <div class="stat">Most common colour:<b>£{{ common_colour }}</b></div>
-    # <div class="stat">Average engine size:<b>£{{ mean_engine_size }}</b></div>
     return render(request,'home/home.html',context)
 
 
@@ -89,12 +82,12 @@ def plots(request): #The request argument is created whenever a page loads, it c
     title.set_position([0.4,1])
     # plt.xticks(rotation=90)
     plt.subplots_adjust(left=0.2, bottom=0.1,top=0.9, right=1)
-    ax.set_frame_on(False)
+    
     # ax.set_yticks([])
     # ax.spines["top"].set_visible(False)
     # ax.spines["right"].set_visible(False)
     #plt.tick_params(axis='x', which='major', pad=-15)#Move x ticks up or down
-
+    ax.set_frame_on(False)
     canvas = FigureCanvas(fig)
     response = HttpResponse(content_type='image/png')
     canvas.print_png(response)

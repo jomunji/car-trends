@@ -3,11 +3,68 @@
 {% block header %}Trend plot{% endblock header %}
 
 {% block page_content %}
-<a class="btn btn-primary btn-block nav-button" href="{% url 'home' %}">Home</a>
 <div id="trends-container">
-    <img id="trends-visual" src="{% url 'trends_plots' %}"></img>
+    <div id="trends-top-container">
+        <a class="btn btn-primary nav-button" href="{% url 'home' %}">Home</a>
+        
+        
+    </div>
 
+
+    <div id="trends-middle-container">
+        <img id="trends-visual" src="{% url 'trends_plots' col_input='1' %}"></img>
+
+    </div>
+
+    <div id="trends-bottom-container">
+        <select id="col-inputter" class="form-select-sm" aria-label="Default select example">
+            <option selected>View trend for...</option>
+            <option value="1">Average price</option>
+            <option value="2">Average mileage</option>
+            <option value="3">Frequency of cars</option>
+        </select>
+        <a id="change-trends-button" class="btn btn-success nav-button" href="#">Check it out</a>
+    </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% verbatim %}
+<script>
+    console.log(localStorage.getItem("url"))
+    function saveSelectedValue() {
+        var selectedValue = $('#col-inputter').val();
+        localStorage.setItem('selectedValue', selectedValue);
+    }
+
+    $(document).ready(function() {
+        var storedValue = localStorage.getItem('selectedValue');
+        if (storedValue) {
+            $('#col-inputter').val(storedValue);
+        }
+
+        $('#col-inputter').on('change', function() {
+            saveSelectedValue(); // Save the selected value when changed
+        });
+
+        $('#change-trends-button').on('click', function(e) {
+            e.preventDefault(); // Prevents the default action of the link
+            
+            var selectedValue = $('#col-inputter').val(); // Get the selected value
+            
+            // Construct the URL with the selected value
+            // var url = "{% url 'change_trends_plots' col_input='"+selectedValue+"' %}";
+            var url = 'trends_plots/'+selectedValue+'/'
+            localStorage.setItem('url', url);
+            console.log(url)
+            
+            // Navigate to the constructed URL
+            window.location.href = url
+            // $('#change-trends-button').attr('href', url);
+
+        });
+    });
+</script>
+{% endverbatim %}
+
 
 
 
