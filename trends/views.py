@@ -17,7 +17,13 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvas
 from home.views import randomRGB
 
-def make_plot(request, col):
+def make_plot(request, col: str) -> HttpResponse:
+    """
+    This function takes in a string called col, and makes a trend graph.
+    It first queries the database using the passed column name, before using the groupby to aggregate the data per year, based on what input the column is.
+    This will average the passed column over the year.
+    It then creates a trend plot and returns a HttpResponse object, using the image of the plot just made.
+    """
     with connection.cursor() as cursor:
             cursor.execute("SELECT reg_year,"+col+" FROM ad_table")
             columns = [col[0] for col in cursor.description]
@@ -41,11 +47,14 @@ def make_plot(request, col):
     return response
 
 
-def trends_plots(request, col_input):
+def trends_plots(request, col_input: str) -> HttpResponse:
+    """
+    Takes column input and makes plot using make_plot function
+    """
     logger.warning("Column input: "+col_input)
     if col_input == '1':
         #Average price
-        logger.warning("Average price please")
+        logger.warning("Average price")
         #Fetch all data from database
         response = make_plot(request,"price")
         return response
